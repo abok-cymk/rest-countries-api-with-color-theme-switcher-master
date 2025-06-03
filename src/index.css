@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-nunitoSans: "Nunito Sans", sans-serif;
+    --font-weight-300: 300;
+    --font-weight-600: 600;
+    --font-weight-800: 800;
+
+    /* Dark mode */
+    --color-elementsDark: hsl(209, 23%, 22%);
+    --color-backgroundDark: hsl(207, 26%, 17%);
+    --color-textDark: hsl(0, 100%, 100%);
+
+    /* Light mode */
+    --color-elementsLight: hsl(0, 100%, 100%);
+    --color-textLight: hsl(200, 15%, 8%);
+    --color-inputLight: hsl(0, 0%, 50%);
+    --color-backgroundLight: hsl(0, 0%, 99%);
+}
+
+input, textarea, button, select {
+    font: inherit;
+    color: inherit;
+}
