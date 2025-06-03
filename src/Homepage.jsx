@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import useIntersectionObserver from "./hooks/useIntersectionObserver"; // Import the hook
 
 // New CountryCard component
-const CountryCard = memo(({ country }) => {
+const CountryCard = memo(({ country, isAboveThreshold }) => {
   const [cardRef, isIntersecting] = useIntersectionObserver({
     threshold: 0.1, // Trigger when 10% of the card is visible
     triggerOnce: true, // Only animate once
@@ -37,7 +37,8 @@ const CountryCard = memo(({ country }) => {
         <img
           src={country.flags.svg || country.flags.png}
           alt={`Flag of ${country.name}`}
-          loading="lazy"
+          loading={isAboveThreshold ? undefined : "lazy"}
+          fetchPriority={isAboveThreshold ? "high" : "auto"}
           className="w-full h-40 object-cover"
         />
         <div className="p-6">
@@ -66,10 +67,11 @@ function Homepage({ countries }) {
         {" "}
         {/* Adjusted gaps from previous example */}
         {countries.length > 0 ? (
-          countries.map((country) => (
+          countries.map((country, index) => (
             <CountryCard
               key={country.alpha3Code || country.name}
               country={country}
+              isAboveThreshold={index < 4}
             />
           ))
         ) : (
