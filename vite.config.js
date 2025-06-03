@@ -5,10 +5,13 @@ import { visualizer } from "rollup-plugin-visualizer"; // Import
 
 
 export default defineConfig({
+  base: "/rest-countries-api-with-color-theme-switcher-master/",
   plugins: [
     react(),
     tailwindcss(),
     visualizer({ open: true, gzipSize: true, brotliSize: true }), // Add visualizer
   ],
-  base: "/rest-countries-api-with-color-theme-switcher-master/",
+  build: {
+    sourcemap: true,
+  },
 });
