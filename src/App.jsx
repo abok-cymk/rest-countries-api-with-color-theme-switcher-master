@@ -159,7 +159,7 @@ const App = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path="*"
         element={<HomePageLayout allCountriesData={allCountries} />}
       />
       <Route
