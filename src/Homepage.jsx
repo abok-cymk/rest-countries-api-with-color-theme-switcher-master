@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import useIntersectionObserver from "./hooks/useIntersectionObserver"; // Import the hook
+import useIntersectionObserver from "./hooks/useIntersectionObserver";
 
-// New CountryCard component
+
 const CountryCard = memo(({ country, isAboveThreshold }) => {
   const [cardRef, isIntersecting] = useIntersectionObserver({
     threshold: 0.1, // Trigger when 10% of the card is visible
@@ -64,8 +64,6 @@ function Homepage({ countries }) {
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 sm:gap-12 md:gap-16">
-        {" "}
-        {/* Adjusted gaps from previous example */}
         {countries.length > 0 ? (
           countries.map((country, index) => (
             <CountryCard

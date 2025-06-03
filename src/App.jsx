@@ -4,11 +4,11 @@ import { FiSearch } from "react-icons/fi";
 import { BiChevronDown } from "react-icons/bi";
 import countriesData from "../data.json";
 import Homepage from "./Homepage";
-import CountryDetailPage from "./CountryDetailPage"; // Create this file
+import CountryDetailPage from "./CountryDetailPage"; 
 import { Formik, Form, Field } from "formik";
 import { Routes, Route } from "react-router-dom";
 
-// Debounce function (keep as is)
+// Debounce function 
 const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {
@@ -19,7 +19,6 @@ const debounce = (func, delay) => {
   };
 };
 
-// This component will manage the state and logic for the homepage (list + filters)
 const HomePageLayout = ({ allCountriesData }) => {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
@@ -75,13 +74,13 @@ const HomePageLayout = ({ allCountriesData }) => {
             <header>
               <Navbar />
               <div className="max-w-6xl mx-auto px-4 pt-24">
-                <Form className="flex items-start sm:items-center justify-between gap-[0.8lh] flex-col lg:flex-row">
+                <Form className="flex items-start sm:items-center justify-between gap-[0.8lh] flex-col sm:flex-row">
                   <div className="relative">
                     <Field
                       type="text"
                       name="searchQuery"
                       placeholder="Search for a country..."
-                      className="relative shadow-md rounded py-[0.8ch] px-16 placeholder:text-[0.875rem] text-inputLight dark:bg-elementsDark dark:text-white focus:outline-0 w-full sm:w-auto"
+                      className="relative shadow-md rounded py-[0.8ch] px-16 placeholder:text-[0.875rem] text-inputLight dark:bg-elementsDark dark:placeholder:text-white dark:text-white focus:outline-0 w-full sm:w-auto"
                     />
                     <FiSearch className="absolute top-1/2 -translate-y-1/2 left-4 text-gray-500 dark:text-white" />
                   </div>
@@ -90,27 +89,27 @@ const HomePageLayout = ({ allCountriesData }) => {
                     <Field
                       as="select"
                       name="selectedRegion"
-                      className="focus:outline-0 w-full shadow-lg appearance-none rounded-md py-2 pl-6 pr-12 text-textLight dark:bg-elementsDark dark:text-white text-[0.875rem]"
+                      className="focus:outline-0 w-full shadow-lg appearance-none rounded-md pl-6 pr-10 py-2 dark:bg-elementsDark"
                     >
-                      <option value="" className="text-[0.875rem]">
+                      <option value="" className="dark:text-white text-[0.875rem] text-textLight">
                         Filter by Region
                       </option>
-                      <option value="Africa" className="text-[0.875rem]">
+                      <option value="Africa" className="dark:text-white text-[0.875rem] text-textLight">
                         Africa
                       </option>
-                      <option value="Americas" className="text-[0.875rem]">
+                      <option value="Americas" className="dark:text-white text-[0.875rem] text-textLight">
                         Americas
                       </option>
-                      <option value="Asia" className="text-[0.875rem]">
+                      <option value="Asia" className="dark:text-white text-[0.875rem] text-textLight">
                         Asia
                       </option>
-                      <option value="Europe" className="text-[0.875rem]">
+                      <option value="Europe" className="dark:text-white text-[0.875rem] text-textLight">
                         Europe
                       </option>
-                      <option value="Oceania" className="text-[0.875rem]">
+                      <option value="Oceania" className="dark:text-white text-[0.875rem] text-textLight">
                         Oceania
                       </option>
-                      <option value="Polar" className="text-[0.875rem]">
+                      <option value="Polar" className="dark:text-white text-[0.875rem] text-textLight">
                         Polar
                       </option>
                     </Field>
@@ -140,7 +139,7 @@ const App = () => {
         (country) =>
           country &&
           typeof country.name === "string" &&
-          typeof country.alpha3Code === "string" && // Important for routing key
+          typeof country.alpha3Code === "string" && 
           typeof country.region === "string" &&
           country.flags &&
           typeof country.flags.png === "string" &&
