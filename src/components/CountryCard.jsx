@@ -45,7 +45,8 @@ const CountryCard = ({ country, isAboveThreshold }) => {
             {country.name}
           </h2>
           <p className="text-sm text-textLight dark:text-gray-300 mb-1">
-            <strong>Population:</strong> {country.population.toLocaleString()}
+            <strong>Population:</strong>{" "}
+            {country.population?.toLocaleString() || "N/A"}
           </p>
           <p className="text-sm text-textLight dark:text-gray-300 mb-1">
             <strong>Region:</strong> {country.region}
